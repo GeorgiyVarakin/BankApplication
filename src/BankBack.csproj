@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <RootNamespace>Src</RootNamespace>
+        <OutputType>Exe</OutputType>
+        <NoWarn>CA1515, CA2007, CA2227, SA1116, IDE0008, NU1902, NU1903</NoWarn>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="DotNetEnv" />
+      <PackageReference Include="Itmo.Dev.Platform.Postgres" />
+      <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
+      <PackageReference Include="NSubstitute" />
+      <None Update=".env">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+      <PackageReference Include="Spectre.Console" />
+      <PackageReference Include="Spectre.Console.Cli" />
+      <PackageReference Include="Swashbuckle.AspNetCore" />
+
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="obj\" />
+      <Folder Include="Presentation\" />
+    </ItemGroup>
+
+</Project>

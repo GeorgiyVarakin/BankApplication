@@ -1,0 +1,2 @@
+Use this in cmd:
+docker compose up -d
