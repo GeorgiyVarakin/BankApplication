@@ -20,8 +20,10 @@ Implement an ATM system
 - Data is persistently stored in a database (PostgreSQL)
 - The application has a hexagonal architecture
 
-## Test cases
-The tests use mock repositories.
+## Libraries
+- Microsoft dependency injection
+- Spectre for CLI
+- AspNetCore for API
 
 ---
 
