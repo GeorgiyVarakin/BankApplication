@@ -1,29 +1,45 @@
-# BekBank Backend
+# Bank Backend
+
+## Case
+Implement an ATM system
+
+## Application Functions
+- Account creation
+- View the account balance
+- Withdrawal of money from the account
+- Account replenishment
+- View the history of operations
+
+## Features
+- CLI
+- The ability to select the operating mode (user, administrator)
+    - when selecting a user, account data (number, PIN) should be requested
+    - when choosing an administrator, the system password must be requested.
+        - if the password is entered incorrectly, the system stops working.
+- Error messages are displayed when attempting to perform incorrect operations.
+- Data is persistently stored in a database (PostgreSQL)
+- The application has a hexagonal architecture
+
+## Test cases
+The tests use mock repositories.
 
 ---
 
-## Run
-Run the application:
-In directory with BankBack.sln run this:
-```
-dotnet run
-```
----
 ## Api
 
-#### Вход в аккаунт админа
+#### Login to the admin account
 ```
 /admin/authentication/{password}
 ```
-Ответ: true/false
+Answer: true/false
 
-#### Создание банковского аккаунта
+#### Creating a bank account
 ```
 /bankAccount/identification/{password}
 ```
-Ответ: _BankAccount_, если пароль подходит по длине (между 10 и 64), иначе null
+Answer: _BankAccount_, if the password is suitable in length (between 10 and 64), otherwise null
 
-__Пример__:
+__Example__:
 ```
 {
   "accountGuid": 100000000000,
@@ -31,25 +47,25 @@ __Пример__:
 }
 ```
 
-#### Вход в банковский аккаунт
+#### Log in to your bank account
 ```
 /bankAccount/authentication/{id:long}/{password}
 ```
-Ответ: _BankAccount_, если аккаунт с таким id существует и пароль подходит, иначе null
+Answer: _BankAccount_, if an account with such an id exists and the password is suitable, otherwise null
 
-#### Узнать баланс аккаунта
+#### Find out the account balance
 ```
 /bankAccount/showBalance/{id}
 ```
-Ответ: значение баланса (_long int_), если аккаунт с таким id найден, иначе null
+Answer: the balance value (_long int_), if an account with this id is found, otherwise null
 
-#### Узнать историю аккаунта
+#### Find out your account history
 ```
 /bankAccount/showHistory/{id}
 ```
-Ответ: Лист значений типа _Log_
+Answer: A list of values of type _Log_
 
-__Пример__:
+__Example__:
 ```
 [
   {
@@ -76,13 +92,13 @@ __Пример__:
 ]
 ```
 
-#### Увеличить значение баланса аккаунта
+#### Increase the account balance value
 ```
 /bankAccount/addMoney/{id:long}/{delta:long}
 ```
-Ответ: возвращает _BankOperationAnswer_
+Answer: returns _BankOperationAnswer_
 
-__Пример__:
+__Example__:
 ```
 {
   "isSuccess": true,
@@ -104,11 +120,11 @@ __Пример__:
 }
 ```
 
-#### Уменьшить значение баланса аккаунта
+#### Reduce the account balance value
 ```
 /bankAccount/withdrawMoney/{id:long}/{delta:long}
 ```
-Ответ: возвращает _BankOperationAnswer_
+Answer: returns _BankOperationAnswer_
 
 ### References
 #### _Bank account_
